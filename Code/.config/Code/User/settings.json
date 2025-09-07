@@ -3664,13 +3664,8 @@
       "position": "center"
     },
     "styles": [{}, {}, {}],
-    // "images": ["file:///home/mohammad-hraiba/Pictures/256100.png"],
-    // "images": ["file:///home/mohammad-hraiba/Pictures/1473106.jpg"],
-    // "images": ["file:///home/mohammad-hraiba/Pictures/14.jpg"],
-    // "images": ["file:///home/mohammad-hraiba/Pictures/wallpaper.png"],
-    // "images": ["file:///home/mohammad-hraiba/Pictures/vs.jpg"],
-    // "images": ["file:///home/mohammad-hraiba/Pictures/see.png"],
-    "images": ["file:///home/mohammad-hraiba/Pictures/urban_architecture.jpg"],
+    "images": ["file:///home/mo/.config/backgrounds/arch-rainbow.png"],
+  
     "interval": 0,
     "random": false
   },
@@ -3751,7 +3746,7 @@
       "expiresOn": 0
     }
   ],
-"workbench.colorTheme": "Night Owl",
+"workbench.colorTheme": "Catppuccin Mocha",
 "chat.editor.fontSize": 16,
 "yaml.schemas": {
   "file:///home/mohammad-hraiba/.vscode/extensions/atlassian.atlascode-3.8.15/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
