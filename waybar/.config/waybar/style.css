@@ -1,7 +1,8 @@
 @import "mocha.css"; 
 
 * {
-    font-family: "MesloLGS Nerd Font Mono Bold";
+    /* font-family: "MesloLGS Nerd Font Mono Bold"; */
+  font-family: "Cascadia Code NF Bold";
     font-size: 16px;
     min-height: 0;
     font-weight: bold;
@@ -78,6 +79,12 @@ button:hover {
 #clock {
     color: @maroon;
     border-bottom: 2px solid @maroon;
+}
+
+
+#bluetooth {
+    color: @maroon;
+    border-bottom: 4px solid @maroon;
 }
 
 #clock.date {
