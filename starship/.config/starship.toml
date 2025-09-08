@@ -102,7 +102,7 @@ style = " fg:#f2cdcd"  # white bracket on gray block
 [directory]
 style = "fg:#f2cdcd"  # black text on white block
 format = "[$path ]($style)"
-truncation_length = 0
+truncation_length = 1
 truncation_symbol = ""
 
 # Right bracket
