@@ -3751,6 +3751,7 @@
 "yaml.schemas": {
   "file:///home/mohammad-hraiba/.vscode/extensions/atlassian.atlascode-3.8.15/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
 },
+"dotnetAcquisitionExtension.existingDotnetPath": [],
 // "vscode_custom_css.imports": [
 
 //   "file:///home/mohammad-hraiba/source/vs/statusbar/custom-status-bar.css"
