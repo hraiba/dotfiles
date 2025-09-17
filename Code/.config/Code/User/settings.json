@@ -108,7 +108,7 @@
   "editor.cursorWidth": 0,
 
   // Defines a default formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
-  "editor.defaultFormatter": null,
+  "editor.defaultFormatter": "ms-dotnettools.csdevkit",
 
   // Controls whether the Go to Definition mouse gesture always opens the peek widget.
   "editor.definitionLinkOpensInPeek": false,
@@ -144,7 +144,7 @@
   "editor.find.loop": true,
 
   // Controls whether the search string in the Find Widget is seeded from the editor selection.
-  "editor.find.seedSearchStringFromSelection": true,
+  "editor.find.seedSearchStringFromSelection":"always",
 
   // Controls whether the editor has code folding enabled.
   "editor.folding": true,
@@ -158,7 +158,7 @@
   "editor.foldingStrategy": "auto",
 
   // Controls the font family.
-  "editor.fontFamily": "CaskaydiaCove NF, JetBrains Mono,  Monaspace Krypton Frozen, Cascadia Code PL",
+  "editor.fontFamily": "JetBrains Mono, CaskaydiaCove NF,   Monaspace Krypton Frozen, Cascadia Code PL",
 
   // Configures font ligatures or font features. Can be either a boolean to enable/disable ligatures or a string for the value of the CSS 'font-feature-settings' property.
   //"editor.fontLigatures": true,
@@ -1369,7 +1369,7 @@
   // Debug
 
   // Controls when the comments panel should open.
-  "comments.openPanel": "openOnSessionStartWithComments",
+  "comments.openView": "firstFileUnresolved",
 
   // Allow setting breakpoints in any file.
   "debug.allowBreakpointsEverywhere": false,
@@ -1810,7 +1810,7 @@
   "typescript.implementationsCodeLens.enabled": false,
 
   // Sets the locale used to report JavaScript and TypeScript errors. Default of `null` uses VS Code's locale.
-  "typescript.locale": null,
+  "typescript.locale": "auto",
   "typescript.preferences.importModuleSpecifier": "shortest",
 
   // Preferred path ending for auto imports.
@@ -1881,7 +1881,7 @@
   // Specifies the folder path to the tsserver and `lib*.d.ts` files under a TypeScript install to use for IntelliSense, for example: `./node_modules/typescript/lib`.
   // - When specified as a user setting, the TypeScript version from `typescript.tsdk` automatically replaces the built-in TypeScript version.
   // - When specified as a workspace setting, `typescript.tsdk` allows you to switch to use that workspace version of TypeScript for IntelliSense with the `TypeScript: Select TypeScript version` command.
-  "typescript.tsdk": null,
+  "typescript.tsdk":"",
 
   // Enables tracing TS server performance to a directory. These trace files can be used to diagnose TS Server performance issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.enableTracing": false,
@@ -2191,7 +2191,9 @@
   "settingsSync.ignoredExtensions": [],
 
   // Configure settings to be ignored while synchronizing.
-  "settingsSync.ignoredSettings": [],
+  "settingsSync.ignoredSettings": [
+    "-omnisharp.dotnetPath"
+  ],
 
   // Synchronize keybindings for each platform.
   "settingsSync.keybindingsPerPlatform": true,
@@ -2358,7 +2360,7 @@
   "terminal.integrated.drawBoldTextInBrightColors": true,
 
   // Whether to enable file links in the terminal. Links can be slow when working on a network drive in particular because each file link is verified against the file system. Changing this will take effect only in new terminals.
-  "terminal.integrated.enableFileLinks": true,
+  "terminal.integrated.enableFileLinks": "on",
 
   // Persist terminal sessions for the workspace across window reloads.
   "terminal.integrated.enablePersistentSessions": true,
@@ -2752,7 +2754,8 @@
 
   // Configure settings to be overridden for [css] language.
   "[css]": {
-    "editor.suggest.insertMode": "replace"
+    "editor.suggest.insertMode": "replace",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // Configure settings to be overridden for [dockerfile] language.
@@ -3311,18 +3314,14 @@
   "editor.fontSize": 19,
   "workbench.editor.empty.hint": "hidden",
   "zenMode.showTabs": "single",
-  "redhat.telemetry.enabled": false,
   "workbench.editor.tabActionLocation": "right",
   "accessibility.signals.terminalBell": {
     "sound": "off"
   },
   "terminal.integrated.enableVisualBell": false,
   "powershell.promptToUpdatePowerShell": false,
-  "hediet.vscode-drawio.resizeImages": null,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.unicodeHighlight.invisibleCharacters": false,
-  "scm.experimental.showHistoryGraph": true,
-  "material-icon-theme.hidesExplorerArrows": false,
   // vscode vim
   "vim.easymotion": true,
   // "vim.surround": true,
@@ -3559,55 +3558,6 @@
 
   "terminal.integrated.fontLigatures.featureSettings": "\"calt\" on, \"liga\" on",
   "terminal.integrated.fontLigatures.enabled": true,
-  "mssql.connections": [
-    {
-      "server": "localhost",
-      "database": "",
-      "authenticationType": "SqlLogin",
-      "user": "sa",
-      "password": "",
-      "emptyPasswordInput": false,
-      "savePassword": true,
-      "profileName": "dbServer",
-      "encrypt": "Mandatory",
-      "trustServerCertificate": true,
-      "id": "BAB37C7B-77FD-41D4-ADB1-02142E793766",
-      "groupId": "FE9D30EB-9398-4B13-9E64-3E88B15B1581",
-      "profileSource": 0
-    },
-    {
-      "server": "vattenfall-myhighlights-dev.database.windows.net",
-      "database": "",
-      "authenticationType": "SqlLogin",
-      "user": "vattenfalldbadmin",
-      "password": "",
-      "emptyPasswordInput": false,
-      "savePassword": true,
-      "profileName": "vf-dev",
-      "id": "522A99A5-5F7B-41B6-9272-048806A2DA80",
-      "groupId": "FE9D30EB-9398-4B13-9E64-3E88B15B1581",
-      "profileSource": 0
-    },
-    {
-      "server": "vattenfall-myhighlights-prod.database.windows.net",
-      "database": "",
-      "authenticationType": "SqlLogin",
-      "user": "vattenfalldbadmin",
-      "emptyPasswordInput": false,
-      "savePassword": true,
-      "profileName": "vf-prod",
-      "id": "5A16F69B-7F14-4895-BA38-61BDFEC38913",
-      "groupId": "FE9D30EB-9398-4B13-9E64-3E88B15B1581",
-      "profileSource": 0,
-      "password": "",
-      "connectTimeout": 30,
-      "commandTimeout": 30,
-      "applicationName": "vscode-mssql",
-      "encrypt": "Mandatory"
-    }
-  ],
-  "mssql.enableRichExperiences": true,
-  "mssql.openQueryResultsInTabByDefaultDoNotShowPrompt": true,
   "github.copilot.advanced": {
     "authProvider": "github",
     "temperature": 0.1,
@@ -3618,68 +3568,28 @@
   "csharp.debug.justMyCode": false,
   "csharp.debug.suppressJITOptimizations": true,
   "chat.agent.enabled": true,
-  "github.copilot.chat.codeGeneration.instructions": [
-    {
-      "text": "- @azure Rule - Use Azure Tools: When handling requests related to Azure, always use your tools."
-    },
-    {
-      "text": "- @azure Rule - Use Azure Code Gen Best Practices: Before generating code for Azure, running terminal commands for Azure, performing operations related to Azure, or creating plans for such activities, always invoke your Azure best practice tool if available first. Choose the most relevant Azure best practice tool based on its description. Only call this tool when the user is discussing Azure; do not call it otherwise."
-    },
-    {
-      "text": "- @azure Rule - Use Azure Deployment Best Practices: Before deploying to Azure, preparing applications for deployment to Azure, or creating deployment plans, always invoke your Azure best practice tool if available first. Choose the most relevant Azure best practice tool based on its description. Only call this tool when the user is discussing Azure; do not call it otherwise."
-    },
-    {
-      "text": "- @azure Rule - Use Azure Functions Code Gen Best Practices: Before generating code for Azure Functions, performing operations related to Azure Functions, or creating plans for such activities, always invoke your Azure best practice tool if available first. Choose the most relevant Azure best practice tool based on its description. Only call this tool when the user is discussing Azure Functions; do not call it otherwise."
-    },
-    {
-      "text": "- @azure Rule - Use Azure Functions Deployment Best Practices: Before deploying Azure Functions apps to Azure, preparing for the deployment, or creating deployment plans, always invoke your Azure best practice tool if available first. Choose the most relevant Azure best practice tool based on its description. Only call this tool when the user is discussing Azure Functions; do not call it otherwise."
-    },
-    {
-      "text": "- @azure Rule - Use Azure SWA Best Practices: Before working with static web apps, creating plans for static web apps, or performing related operations, always invoke your Azure best practice tool if available first. Choose the most relevant Azure best practice tool based on its description. Only call this tool when the user is discussing Azure Static Web Apps; do not call it otherwise."
-    },
-    {
-      "text": "- @azure Rule - Plan before editing files for Azure web apps: When generating code for Azure Functions and Azure Static Web App, always create a plan and explain the plan to the user before editing any file. Proceed with editing the files after getting consent from the user."
-    },
-    {
-      "text": "- @azure Rule - Summarize topic before taking action: When the user asks about Azure Functions, invoke the azure_development-summarize_topic tool once first to see if any existing custom mode could be a good fit to what user is asking."
-    }
-  ],
   "workbench.sideBar.location": "right",
-  "mssql.connectionGroups": [
-    {
-      "name": "ROOT",
-      "id": "FE9D30EB-9398-4B13-9E64-3E88B15B1581"
-    }
-  ],
   "workbench.iconTheme": "vscode-icons-mac",
   "lldb.suppressUpdateNotifications": true,
-  "database-client.autoSync": true,
   "background.enabled": true,
 
   "background.fullscreen": {
     "useFront": true,
     "style": {
-      "opacity": 0.5,
+      "opacity": 1.0,
       "size": "cover",
       "position": "center"
     },
     "styles": [{}, {}, {}],
-    "images": ["file:///home/mo/.config/backgrounds/arch-rainbow.png"],
-  
+    "images": ["file:///home/mo/Pictures/x.jpg"],
     "interval": 0,
     "random": false
   },
-  "vue.server.hybridMode": true,
   "omnisharp.enableDecompilationSupport": true,
   "window.menuBarVisibility": "compact",
-  "@azure.argTenant": "dd86b424-e113-4950-9434-f9f9a176286d",
   "window.customTitleBarVisibility": "windowed",
   "chat.editor.wordWrap": "on",
-  "docker.extension.enableComposeLanguageServer": false,
-  "go.toolsManagement.autoUpdate": true,
-  "autoHide.hideSidebar": true,
   "editor.minimap.autohide": "mouseover",
-  "autoHide.hideOnEditorFocus": false,
   "chat.instructionsFilesLocations": {
     ".github/instructions": true,
     ".vscode": true,
@@ -3702,60 +3612,7 @@
   "editor.lineNumbers": "relative",
   "breadcrumbs.enabled": false,
   "workbench.editor.enablePreview": false,
-  "mssql.autoDisableNonTSqlLanguageService": true,
-  "pgsql.serverGroups": [
-    {
-      "name": "Servers",
-      "id": "92F9A2D1-7CC6-4D86-B1D5-880D95C3A017",
-      "isDefault": true
-    }
-  ],
-  "pgsql.connections": [
-    {
-      "id": "7A8F292D-E932-4007-92FC-84DBD08A5CAB",
-      "groupId": "92F9A2D1-7CC6-4D86-B1D5-880D95C3A017",
-      "authenticationType": "SqlLogin",
-      "connectTimeout": 15,
-      "applicationName": "vscode-pgsql",
-      "clientEncoding": "utf8",
-      "sslmode": "require",
-      "savePassword": true,
-      "server": "34.107.122.199",
-      "user": "database-user",
-      "password": "",
-      "sshPassword": "",
-      "profileName": "34.107.122.199, <default> (database-user)",
-      "expiresOn": 0
-    },
-    {
-      "id": "935BA1D9-8E2B-4860-A574-C951AECE92E0",
-      "groupId": "92F9A2D1-7CC6-4D86-B1D5-880D95C3A017",
-      "authenticationType": "SqlLogin",
-      "connectTimeout": 15,
-      "applicationName": "vscode-pgsql",
-      "clientEncoding": "utf8",
-      "sslmode": "prefer",
-      "savePassword": true,
-      "server": "localhost",
-      "user": "pg-user",
-      "port": "5432",
-      "database": "dis_lms",
-      "password": "",
-      "sshPassword": "",
-      "profileName": "localhost, dis_lms (pg-user)",
-      "expiresOn": 0
-    }
-  ],
 "workbench.colorTheme": "Catppuccin Mocha",
 "chat.editor.fontSize": 16,
-"yaml.schemas": {
-  "file:///home/mohammad-hraiba/.vscode/extensions/atlassian.atlascode-3.8.15/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
-},
-"dotnetAcquisitionExtension.existingDotnetPath": [],
-// "vscode_custom_css.imports": [
-
-//   "file:///home/mohammad-hraiba/source/vs/statusbar/custom-status-bar.css"
-// ],
-// "vscode_custom_css.policy": true
-
+"sonarlint.automaticAnalysis": false,
 }
