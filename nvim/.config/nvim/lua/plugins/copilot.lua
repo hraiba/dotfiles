@@ -1,3 +1,5 @@
 return {
-  "github/copilot.vim"
+  {"github/copilot.vim"},
+  vim.keymap.set("n", "<leader>cd", ":Copilot disable<CR>", {})
 }
+

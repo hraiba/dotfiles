@@ -1,16 +1,52 @@
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
+vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("set cursorline")
+vim.cmd("set ignorecase")
+-- vim.cmd("set clipboard+=unnamedplus")
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
+	end,
+})
+
 vim.g.mapleader = " "
+vim.g.background = "dark"
 
 vim.opt.swapfile = false
 
 -- Navigate vim panes better
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
+vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
+vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
+vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+-- vim.keymap.set("n", "<leader>q", ":q<CR>")
+vim.keymap.set("n", "<leader>Q", ":q!<CR>")
+vim.keymap.set("n", "<leader>bd", ":bd<CR>")
+vim.keymap.set({"n", "v"}, "<leader>yy", '"+y<CR>')
+vim.keymap.set("n", "<leader>pp", '"+p<CR>')
+vim.keymap.set("n", "<leader>wa", ":wa<CR>")
 
-vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+-- break line in normal models
+vim.keymap.set("n", "<leader>o", "a<CR><Esc>k$")
+vim.keymap.set("n", "<leader>O", "i<CR><Esc>k$")
+
+vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
+
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require('vim.ui.clipboard.osc52').copy('+'),
+    ["*"] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ["+"] = require('vim.ui.clipboard.osc52').paste('+'),
+    ["*"] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+
+
+

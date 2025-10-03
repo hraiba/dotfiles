@@ -7,15 +7,17 @@ return {
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
+      -- "onsails/lspkind.nvim",
+      -- "hrsh7th/cmp-buffer",
+      -- "hrsh7th/cmp-path",
     },
   },
   {
     "hrsh7th/nvim-cmp",
-    version = false,
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
-
+    -- local lspkind = require("lspkind")
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -27,6 +29,8 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
@@ -38,7 +42,16 @@ return {
           { name = "luasnip" }, -- For luasnip users.
         }, {
           { name = "buffer" },
+          -- { name = "path" },
         }),
+
+    -- formatting = {
+    --     format = lspkind.cmp_format({
+    --       maxwidth = 50,
+    --       ellipsis_char = "...",
+    --     }),
+    --   },
+
       })
     end,
   },

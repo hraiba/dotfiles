@@ -8,8 +8,8 @@ ${custom.right_bracket}\
 $git_branch\
 $git_status\
 $c\
-$rust\
 $golang\
+$rust\
 $nodejs\
 $php\
 $java\
@@ -159,12 +159,12 @@ format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 [rust]
 symbol = ""
 style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#C3624)]($style)'
 
 [golang]
 symbol = ""
 style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+format = '[[ $symbol( $version) ](fg:#40A1C2)]($style)'
 
 [php]
 symbol = ""
