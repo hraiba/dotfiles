@@ -16,8 +16,10 @@ setopt inc_append_history
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$HOME/.local/share/omarchy/bin:$PATH"
-eval "$(~/.local/bin/mise activate zsh)"
+plugins=( 
+    # other plugins...
+    zsh-autosuggestions
+)
 
 new_tmux () {
   session_dir=$(zoxide query --list | fzf)
@@ -46,3 +48,4 @@ new_tmux () {
 }
 
 alias tm=new_tmux
+source /home/mo/source/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
