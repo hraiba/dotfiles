@@ -9,8 +9,8 @@ return {
         always_divide_middle = true,
         -- theme = "rose-pine",
         -- theme = "vscode",
-        theme = "palenight",
-        -- theme = "gruvbox",
+        -- theme = "palenight",
+        theme = "gruvbox",
         -- theme = "evil_lualine",
       },
     })

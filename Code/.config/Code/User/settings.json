@@ -158,7 +158,7 @@
   "editor.foldingStrategy": "auto",
 
   // Controls the font family.
-  "editor.fontFamily": "JetBrains Mono, CaskaydiaCove NF,   Monaspace Krypton Frozen, Cascadia Code PL",
+  "editor.fontFamily": "CaskaydiaCove NF,  Cascadia Code PL,JetBrains Mono,   Monaspace Krypton Frozen",
 
   // Configures font ligatures or font features. Can be either a boolean to enable/disable ligatures or a string for the value of the CSS 'font-feature-settings' property.
   //"editor.fontLigatures": true,
@@ -1130,11 +1130,6 @@
     "**/node_modules/*/**": true,
     "**/obj/*/**": true
   },
-
-  // Screencast Mode
-
-  // Controls the font size (in pixels) of the screencast mode keyboard.
-  "screencastMode.fontSize": 56,
 
   // Controls how long (in milliseconds) the keyboard overlay is shown in screencast mode.
   "screencastMode.keyboardOverlayTimeout": 800,
@@ -3311,7 +3306,6 @@
     "scminput": false,
     "csharp": true
   },
-  "editor.fontSize": 19,
   "workbench.editor.empty.hint": "hidden",
   "zenMode.showTabs": "single",
   "workbench.editor.tabActionLocation": "right",
@@ -3342,17 +3336,16 @@
     "<C-w>": false,
     "<C-p>": false
   },
-
   "vim.insertModeKeyBindings": [],
   "vim.normalModeKeyBindingsNonRecursive": [
     // find in files
-{
-  "before": [":"],
-  "command": "vim.showQuickpickCmdLine"
-},
-      {
-      "before": ["<leader>", "f", "r"],
-      "commands": ["workbench.action.findInFiles"]
+    {
+      "before": [":"],
+      "command": "vim.showQuickpickCmdLine"
+    },
+    {
+    "before": ["<leader>", "f", "r"],
+    "commands": ["workbench.action.findInFiles"]
     },
     // find in file
     {
@@ -3577,17 +3570,16 @@
     "useFront": true,
     "style": {
       "opacity": 1.0,
-      "size": "cover",
-      "position": "center"
+      "size": "contain",
+      "repeat": "no-repeat"
     },
     "styles": [{}, {}, {}],
-    "images": ["file:///home/mo/Pictures/x.jpg"],
+    "images": ["file:///home/mo/Pictures/wolf.jpg"],
     "interval": 0,
     "random": false
   },
   "omnisharp.enableDecompilationSupport": true,
   "window.menuBarVisibility": "compact",
-  "window.customTitleBarVisibility": "windowed",
   "chat.editor.wordWrap": "on",
   "editor.minimap.autohide": "mouseover",
   "chat.instructionsFilesLocations": {
@@ -3612,7 +3604,17 @@
   "editor.lineNumbers": "relative",
   "breadcrumbs.enabled": false,
   "workbench.editor.enablePreview": false,
-"workbench.colorTheme": "Catppuccin Mocha",
+"workbench.colorTheme": "Correia Gruvbox Theme",
 "chat.editor.fontSize": 16,
 "sonarlint.automaticAnalysis": false,
+"[rust]": {
+  "editor.defaultFormatter": "rust-lang.rust-analyzer"
+},
+"[lua]": {
+  "editor.defaultFormatter": "yinfei.luahelper"
+},
+"editor.fontSize": 17,
+"[csharp]": {
+  "editor.defaultFormatter": "ms-dotnettools.csharp"
+},
 }

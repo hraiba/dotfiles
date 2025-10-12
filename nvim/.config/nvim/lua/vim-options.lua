@@ -4,7 +4,11 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set cursorline")
 vim.cmd("set ignorecase")
--- vim.cmd("set clipboard+=unnamedplus")
+-- make sure you have one of these clipboard providers installed:
+-- xclip for X11
+-- wl-clipboard for Wayland
+-- xsel
+vim.cmd("set clipboard+=unnamedplus")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	callback = function()
@@ -35,18 +39,4 @@ vim.keymap.set("n", "<leader>O", "i<CR><Esc>k$")
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.wo.number = true
-
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require('vim.ui.clipboard.osc52').copy('+'),
-    ["*"] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ["+"] = require('vim.ui.clipboard.osc52').paste('+'),
-    ["*"] = require('vim.ui.clipboard.osc52').paste('*'),
-  },
-}
-
-
 
