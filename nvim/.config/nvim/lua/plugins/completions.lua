@@ -17,6 +17,7 @@ return {
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
+        cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
     -- local lspkind = require("lspkind")
       cmp.setup({
         snippet = {
@@ -39,6 +40,7 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = "easy-dotnet"},
           { name = "luasnip" }, -- For luasnip users.
         }, {
           { name = "buffer" },

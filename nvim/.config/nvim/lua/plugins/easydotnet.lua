@@ -124,7 +124,7 @@ return {
           open_variable_viewer = { lhs = "T", desc = "open variable viewer" },
         },
         -- The path to netcoredbg
-        bin_path = nil,
+        bin_path = "/usr/bin/netcoredbg",
         auto_register_dap = true,
       },
       diagnostics = {
