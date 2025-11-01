@@ -25,7 +25,7 @@ return {
       "json",
       "html",
       "lua",
-      "rust",
+      -- "rust",
       "csharp",
     },
     config = function()
@@ -75,7 +75,7 @@ return {
       })
 
       local lsps = {
-    { "rust_analyzer" },
+    -- { "rust_analyzer" },
     { "gopls" },
     { "ts_ls" },
     { "cssls" },
