@@ -331,6 +331,18 @@ window-rule {
 }
 
 window-rule{
+  match app-id=r#"pavucontrol"# title="^Volume Control$"
+  open-floating true
+  opacity 0.9
+}
+
+window-rule{
+  match app-id=r#"eww"# 
+  open-floating true
+  opacity 0.5
+}
+
+window-rule{
   open-maximized true
   match is-active=false
   opacity 0.9
@@ -383,6 +395,8 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
+    Mod+B hotkey-overlay-title="Toggle taskbar" {spawn "sh" "-c" "~/.config/eww/toggle-bar.sh";}
+    Mod+Shift+S hotkey-overlay-title="Open sound controls" { spawn "pavucontrol" ; }
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty" "tmux"; }
     CTRL+Grave hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }

@@ -8,30 +8,25 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("telescope").setup({
-				file_ignore_patterns = {
-					"node_modules",
-					"node_modules/*",
-					"/node_modules/*",
-					".git",
-					".cache",
-					".venv",
-					".vscode",
-					".DS_Store",
-					".idea",
-					".vscode",
-					".gitignore",
-					".gitmodules",
-					".gitattributes",
-					".gitlab-ci.yml",
-					".gitlab",
-					".gitlab-ci",
-					"Debug/*",
-					"/Debug/*",
-					"Debug",
-					"obj/*",
-					"/obj/*",
-					"obj",
-					"build",
+				defaults = {
+					file_ignore_patterns = {
+						"node_modules/",
+						"%.git/",
+						"%.cache",
+						"%.venv/",
+						"%.vscode/",
+						"%.DS_Store",
+						"%.idea/",
+						"target/",
+						"Debug/",
+						"obj/",
+						"build/",
+					},
+				},
+				pickers = {
+					find_files = {
+						hidden = true,
+					},
 				},
 				extensions = {
 					["ui-select"] = {
@@ -44,7 +39,6 @@ return {
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 			vim.keymap.set("n", "<leader><leader>", builtin.find_files, {})
 			vim.keymap.set("n", "<leader>fu", builtin.lsp_references, {})
-
 			require("telescope").load_extension("ui-select")
 		end,
 	},
