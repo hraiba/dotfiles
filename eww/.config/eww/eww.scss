@@ -104,6 +104,23 @@ tooltip {
   }
 }
 
+.battery {
+  .icon {
+    color: $green;
+    font-size: 16px;
+  }
+
+  .text {
+    color: $fg;
+  }
+
+  &:hover {
+    .icon {
+      color: $yellow;
+    }
+  }
+}
+
 .power {
   background-color: $bg1;
   padding: 6px 12px;

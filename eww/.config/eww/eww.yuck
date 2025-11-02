@@ -28,6 +28,12 @@
 (defpoll bluetooth_devices :interval "5s"
   "bluetoothctl devices Connected 2>/dev/null | awk '{$1=$2=\"\"; print substr($0,3)}' | tr '\\n' ', ' | sed 's/, $//' || echo 'No devices connected'")
 
+(defpoll battery :interval "10s"
+  "upower -i $(upower -e | grep BAT) | grep -E 'percentage' | awk '{print $2}'")
+
+(defpoll battery_status :interval "10s"
+  "upower -i $(upower -e | grep BAT) | grep -E 'state' | awk '{print $2}'")
+
 ;; Main Window
 (defwindow bar
   :monitor 0
@@ -109,7 +115,17 @@
                       volume < 30 ? "" : 
                       volume < 70 ? "" : ""})
         (label :class "text" :text "${volume}%")))
-    
+
+   ;; Battery
+  (button :class "module battery"
+        :tooltip {battery_status == "charging" ? "Charging" : "Discharging"}
+  (box :space-evenly false :spacing 8
+    (label :class "icon"
+           :text {battery_status == "charging" ? "󰂄" : 
+                  battery < 20 ? "󰁺" : 
+                  battery < 50 ? "󰁻" : 
+                  battery < 80 ? "󰁼" : "󰁽"})
+    (label :class "text" :text battery))) 
     ;; Power
     (button :class "module power"
             :onclick "eww close bar && eww open power_menu"

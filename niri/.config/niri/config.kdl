@@ -278,7 +278,7 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
- spawn-at-startup "waybar"
+ // spawn-at-startup "waybar"
 
 spawn-at-startup "swaybg" "--image" "/home/mo/Pictures/wolf.jpg"
 
