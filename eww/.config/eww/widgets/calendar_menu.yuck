@@ -1,0 +1,22 @@
+
+;; window with Args 
+(defwindow calander_menu
+           :monitor 0
+           :geometry (geometry 
+                        :x "0%"
+                        :y "50px"
+                        :width "350px"
+                        :height "250px"
+                        :anchor "top center")
+          :stacking "overlay"
+          :reserve (struts :distance "50px" :side "top")
+  (box 
+      (calendar 
+                :class "my_bar"
+                :geometry (geometry 
+                    :x "0%"
+                    :y "42px"
+                    :width "300px"
+                    :height "250px")
+  )))
+

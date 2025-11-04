@@ -279,6 +279,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
  // spawn-at-startup "waybar"
+spawn-at-startup "swaync"
 
 spawn-at-startup "swaybg" "--image" "/home/mo/Pictures/wolf.jpg"
 

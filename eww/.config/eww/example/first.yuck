@@ -1,0 +1,78 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; variable ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; simple variable
+; (defvar foo "initial value")
+; (defvar time-visible false)
+;
+; ;; polling variable
+; (defpoll time :interval "1s"
+;               :initial "initial-value"
+;               :run-while time-visible
+;               `date +%H:%M:%S`)
+; ;;listening variables
+; (deflisten foo :initial "whaterver"
+;   `tail -F /tmp/somefile.log` )
+;; magic variable
+
+
+
+;; widget 
+;; simple widget
+(defwidget greeter [?text name]
+  (box :orientation "horizontal"
+       :halign "center"
+    text
+      (button :onclick "notify-send 'hello' 'hello, ${name}'" "Greet")))
+
+;; widget with children
+(defwidget labeled-container [name]
+  (box :class "container"
+    name
+    (children)))
+
+;; widget with many boxes
+(defwidget two-boxes []
+  (box 
+  (button :onclick "notify-send hey ho" "click me")
+  (button :onclick "notify-send hey ho2" "click me")
+  (button :onclick "notify-send hey ho3" "click me")
+  ))
+
+;; literal widgets
+; (defvar Variable_containing_yuck
+;   "(box (button 'foo') (button 'bar'))")
+; (literal :content variable_containing_yuck)
+
+;; window
+(defwindow example 
+           :monitor 0
+           :geometry (geometry :x "0%"
+                            :y "20px"
+                             :width "90%"
+                             :height "30px"
+                             :anchore "top center")
+          :stacking "overlay"
+          :exclusive true
+(two-boxes :name "foo"))
+
+;; window with Args 
+; (defwindow calendar_menu
+;            :class "my_bar"
+;            :monitor 0
+;            :geometry (geometry 
+;                         :x "0%"
+;                         :y "50px"
+;                         :width "350px"
+;                         :height "250px"
+;                         :anchor "top center")
+;           :stacking "overlay"
+;           :reserve (struts :distance "50px" :side "top")
+;   (box 
+;       (calendar 
+;                 :class "calendar"
+;                 :geometry (geometry 
+;                     :x "0%"
+;                     :y "42px"
+;                     :width "300px"
+;                     :height "250px")
+;   )))
+;

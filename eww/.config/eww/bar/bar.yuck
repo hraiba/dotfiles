@@ -1,0 +1,192 @@
+;; Variables
+(defvar power_menu_open false)
+
+(defpoll time :interval "1s"
+  "date '+%H:%M'")
+
+(defpoll date :interval "60s"
+  "date '+%a, %b %d'")
+
+(defpoll volume :interval "1s"
+  "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'")
+
+(defpoll volume_muted :interval "1s"
+  "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 'true' || echo 'false'")
+
+
+(defpoll network :interval "5s"
+  "nmcli -t -f active,ssid dev wifi | awk -F: '/^yes/{print $2}' | head -n1 || nmcli -t -f DEVICE,STATE dev | awk -F: '/ethernet.*connected/{print \"Ethernet\"}' | head -n1 || echo 'Offline'")
+
+(defpoll network_icon :interval "5s"
+  "nmcli -t -f STATE g | grep -q 'connected' && echo '󰖩' || echo '󰖪'")
+
+(defpoll bluetooth :interval "5s"
+  "bluetoothctl show 2>/dev/null | grep -o 'Powered: .*' | awk '{print $2}' | grep -q 'yes' && echo 'On' || echo 'Off'")
+
+(defpoll bluetooth_icon :interval "5s"
+  "bluetoothctl show 2>/dev/null | grep -o 'Powered: .*' | awk '{print $2}' | grep -q 'yes' && echo '󰂯' || echo '󰂲'")
+
+(defpoll bluetooth_devices :interval "5s"
+  "bluetoothctl devices Connected 2>/dev/null | awk '{$1=$2=\"\"; print substr($0,3)}' | tr '\\n' ', ' | sed 's/, $//' || echo 'No devices connected'")
+
+; (defpoll battery :interval "10s"
+;   "upower -i $(upower -e | grep BAT) | grep -E 'percentage' | awk '{print $2}'")
+
+; (defpoll battery_status 
+;   :interval "10s"
+;   "upower -i $(upower -e | grep BAT) | grep -E 'state' | awk '{print $2}'"
+; )
+
+;; Main Window
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :height "42px"
+                      :anchor "top center")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "eww-bar"
+  (bar_widget))
+
+;; Power Menu Window
+(defwindow power_menu
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "100%"
+                      :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  :focusable true
+  :namespace "eww-power-menu"
+  (power_menu_widget))
+
+;; Bar Widget
+(defwidget bar_widget []
+  (box :class "bar"
+       :orientation "h"
+       :space-evenly false
+       :spacing 12
+    
+    ;; Network
+    (button :class "module network"
+            :onclick "nm-connection-editor &"
+            :tooltip {network != "" ? network : "Disconnected"}
+      (box :space-evenly false :spacing 8
+        (label :class "icon" :text network_icon)
+        (label :class "text" 
+               :text {network != "" ? network : "Disconnected"}
+               :limit-width 20)))
+    
+    ;; Bluetooth
+    (button :class "module bluetooth"
+            :onclick "blueman-manager &"
+            :tooltip bluetooth_devices
+      (box :space-evenly false :spacing 8
+        (label :class "icon" :text bluetooth_icon)
+        (label :class "text" :text bluetooth)))
+    
+    ;; Spacer
+    (box :class "spacer" :hexpand true)
+    
+    ;; Clock
+    (button :class "module clock"
+            :onclick "gnome-calendar &"
+      (box :space-evenly false :spacing 8
+        (label :class "icon" :text "")
+        (label :class "text" :text time)))
+    
+    ;; Date
+    (button :class "module date"
+            :onclick "eww open calander_menu --toggle" 
+      (box :space-evenly false :spacing 8
+        (label :class "icon" :text "")
+        (label :class "text" :text date)))
+    
+    ;; Spacer
+    (box :class "spacer" :hexpand true)
+    
+    ;; Volume
+    (button :class "module volume"
+            :onclick "pavucontrol &"
+      (box :space-evenly false :spacing 8
+        (label :class "icon"
+               :text {volume_muted == "true" ? "󰖁" : 
+                      volume < 30 ? "" : 
+                      volume < 70 ? "" : ""})
+        (label :class "text" :text "${volume}%")))
+
+   ;; Battery
+  (button :class "module battery"
+         :tooltip {EWW_BATTERY["BAT0"].status}
+  (box :space-evenly false :spacing 8
+    (label :class "icon ${ EWW_BATTERY["BAT0"].capacity <= 10 ? 'critical' : '' }"
+           :text "${  EWW_BATTERY["BAT0"].capacity > 95 ? '󰁹' 
+                    : EWW_BATTERY["BAT0"].capacity > 90 ? '󰂂' 
+                    : EWW_BATTERY["BAT0"].capacity > 80 ? '󰂁' 
+                    : EWW_BATTERY["BAT0"].capacity > 70 ? '󰂀' 
+                    : EWW_BATTERY["BAT0"].capacity > 60 ? '󰁿' 
+                    : EWW_BATTERY["BAT0"].capacity > 50 ? '󰁾' 
+                    : EWW_BATTERY["BAT0"].capacity > 40 ? '󰁽' 
+                    : EWW_BATTERY["BAT0"].capacity > 30 ? '󰁼' 
+                    : EWW_BATTERY["BAT0"].capacity > 20 ? '󰁻' 
+                    : EWW_BATTERY["BAT0"].capacity > 10 ? '󰁺' 
+                    : '󰂃' }")
+    (label :text "${EWW_BATTERY["BAT0"].capacity}%" :halign "center" :xalign 0.5 :justify "right")))
+
+;; Power
+(button :class "module power"
+        :onclick "eww close bar && eww open power_menu"
+        :tooltip "Power Menu"
+  (label :class "icon" :text "⏻"))))
+
+;; Power Menu Widget
+(defwidget power_menu_widget []
+  (box :class "power-menu-overlay"
+       :orientation "v"
+       :space-evenly false
+       :valign "center"
+       :halign "center"
+    (eventbox :onclick "eww close power_menu"
+      (box :class "power-menu-bg"))
+    (box :class "power-menu-container"
+         :orientation "v"
+         :space-evenly false
+         :spacing 16
+      (label :class "power-menu-title" :text "Power Options")
+      
+      (box :class "power-menu-buttons"
+           :orientation "h"
+           :space-evenly true
+           :spacing 24
+        
+        (button :class "power-menu-option poweroff"
+                :onclick "eww close power_menu && systemctl poweroff"
+          (box :orientation "v" :space-evenly false :spacing 8
+            (label :class "icon" :text "")
+            (label :class "text" :text "Power Off")))
+        
+        (button :class "power-menu-option reboot"
+                :onclick "eww close power_menu && systemctl reboot"
+          (box :orientation "v" :space-evenly false :spacing 8
+            (label :class "icon" :text "")
+            (label :class "text" :text "Reboot")))
+        
+        (button :class "power-menu-option logout"
+                :onclick "eww close power_menu && niri msg action quit"
+          (box :orientation "v" :space-evenly false :spacing 8
+            (label :class "icon" :text "")
+            (label :class "text" :text "Logout")))
+        
+        (button :class "power-menu-option lock"
+                :onclick "eww close power_menu && swaylock -f"
+          (box :orientation "v" :space-evenly false :spacing 8
+            (label :class "icon" :text "")
+            (label :class "text" :text "Lock"))))
+      
+      (button :class "power-menu-cancel"
+              :onclick "eww close power_menu && eww open bar"
+        (label :text "Cancel")))))
