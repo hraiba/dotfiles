@@ -12,7 +12,7 @@
           :reserve (struts :distance "50px" :side "top")
   (box 
       (calendar 
-                :class "my_bar"
+                :class "calendar_menu"
                 :geometry (geometry 
                     :x "0%"
                     :y "42px"
