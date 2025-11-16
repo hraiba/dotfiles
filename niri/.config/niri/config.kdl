@@ -272,6 +272,7 @@ layout {
     }
 }
 
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -280,6 +281,8 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
  // spawn-at-startup "waybar"
 spawn-at-startup "swaync"
+
+spawn-at-startup "eww" "daemon"
 
 spawn-at-startup "swaybg" "--image" "/home/mo/Pictures/wolf.jpg"
 
@@ -333,6 +336,12 @@ window-rule {
 
 window-rule{
   match app-id=r#"pavucontrol"# title="^Volume Control$"
+  open-floating true
+  opacity 0.9
+}
+
+window-rule{
+  match app-id=r#"blueman-manager"# title="^Bluetooth Devices$"
   open-floating true
   opacity 0.9
 }
@@ -434,6 +443,7 @@ binds {
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
+    
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }

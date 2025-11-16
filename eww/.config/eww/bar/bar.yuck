@@ -29,13 +29,7 @@
 (defpoll bluetooth_devices :interval "5s"
   "bluetoothctl devices Connected 2>/dev/null | awk '{$1=$2=\"\"; print substr($0,3)}' | tr '\\n' ', ' | sed 's/, $//' || echo 'No devices connected'")
 
-; (defpoll battery :interval "10s"
-;   "upower -i $(upower -e | grep BAT) | grep -E 'percentage' | awk '{print $2}'")
 
-; (defpoll battery_status 
-;   :interval "10s"
-;   "upower -i $(upower -e | grep BAT) | grep -E 'state' | awk '{print $2}'"
-; )
 
 ;; Main Window
 (defwindow bar
@@ -101,7 +95,7 @@
     
     ;; Date
     (button :class "module date"
-            :onclick "eww open calander_menu --toggle" 
+            :onclick "eww open calander_menu --toggle && eww open calander_menu_overlay --toggle" 
       (box :space-evenly false :spacing 8
         (label :class "icon" :text "")
         (label :class "text" :text date)))
