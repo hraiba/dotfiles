@@ -1,0 +1,22 @@
+
+(defpoll hour :interval "1s"
+  "date '+%H'")
+(defpoll minutes :interval "1s" "date '+%M:%S'")
+
+(defwindow clock []
+          :monitor 0
+          :geometry (geometry
+                        :x "0%"
+                        :y "0%"
+                        :height "100px"
+                        :width "250px"
+                        :anchor "center")
+                        :vertical true
+          :stacking "overlay"
+          :reserve (struts :distance "50px" :side "top")
+
+(box :space-evenly false :clas "clock-box" 
+(label :class "clock-hour" :halign "start" :wrap "true" :limit-width 25 :text hour)
+				(label :class "clock-minutes" :halign "start" :wrap "true" :limit-width 25 :text minutes))
+)
+

@@ -48,7 +48,6 @@ new_tmux () {
 }
 
 alias tm=new_tmux
-alias 'exe with space'=cat
 alias ls=lsd
 source /home/mo/source/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export NIRI_SOCKET=$(ls /run/user/$(id -u)/niri*.sock | head -n1)

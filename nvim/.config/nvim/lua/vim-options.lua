@@ -36,7 +36,9 @@ vim.keymap.set("n", "<leader>wa", ":wa<CR>")
 -- break line in normal models
 vim.keymap.set("n", "<leader>o", "a<CR><Esc>k$")
 vim.keymap.set("n", "<leader>O", "i<CR><Esc>k$")
+vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
+vim.keymap.set("n", "<leader>;", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>")
 vim.wo.number = true
 

@@ -15,7 +15,9 @@ return {
         -- theme = "evil_lualine",
       },
       sections = {
-        lualine_a={"mode", job_indicator}
+        -- lualine_a={"mode", job_indicator}
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
       }
     })
   end,

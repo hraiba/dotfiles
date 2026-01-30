@@ -59,7 +59,7 @@ return {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(true, {})
+            vim.lsp.inlay_hint.enable(true, {bufnr = 0})
           end
           -- whatever other lsp config you want
         end,

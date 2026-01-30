@@ -33,4 +33,4 @@
   :stacking "bg"
   :focusable false
   (eventbox :onclick "eww close calander_menu && eww close calander_menu_overlay"
-    (box :style "background-color: transparent;")))
+    (box :style "background-colo r: transparent;")))

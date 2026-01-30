@@ -2,3 +2,4 @@
 (include "./example/first.yuck")
 (include "./widgets/calendar_menu.yuck")
 (include "./widgets/power_menu.yuck")
+(include "./widgets/clock.yuck")

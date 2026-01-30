@@ -34,6 +34,7 @@
 ;; Main Window
 (defwindow bar
   :monitor 0
+  :class "container"
   :geometry (geometry :x "0%"
                       :y "0%"
                       :height "42px"
@@ -88,7 +89,8 @@
     
     ;; Clock
     (button :class "module clock"
-            :onclick "gnome-calendar &"
+            ; :onclick "gnome-calendar &"
+            :onclick "eww open clock"
       (box :space-evenly false :spacing 8
         (label :class "icon" :text "")
         (label :class "text" :text time)))

@@ -114,9 +114,26 @@ return {
           local spinner = require("easy-dotnet.ui-modules.spinner").new()
           spinner:start_spinner(start_event.job.name)
           ---@param finished_event JobEvent
+          -- return function(finished_event)
+          --   spinner:stop_spinner(finished_event.result.text, finished_event.result.level)
+          -- end
           return function(finished_event)
-            spinner:stop_spinner(finished_event.result.text, finished_event.result.level)
-          end
+            local result = finished_event.result or {}
+            local text = result.text or "Operation completed"
+            local level = result.level or vim.log.levels.INFO
+            
+            -- Ensure text is a string
+            if type(text) ~= "string" then
+              text = vim.inspect(text)
+            end
+            
+            -- Ensure level is valid
+            if type(level) == "string" then
+              level = vim.log.levels[level:upper()] or vim.log.levels.INFO
+            end
+            
+            spinner:stop_spinner(text, level)
+        end
         end,
       },
       debugger = {

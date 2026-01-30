@@ -22,25 +22,25 @@
         (button :class "power-menu-option poweroff"
                 :onclick "eww close power_menu && systemctl poweroff"
           (box :orientation "v" :space-evenly false :spacing 8
-            (label :class "icon" :text "")
+            (label :class "icon" :text "⏻")
             (label :class "text" :text "Power Off")))
         
         (button :class "power-menu-option reboot"
                 :onclick "eww close power_menu && systemctl reboot"
           (box :orientation "v" :space-evenly false :spacing 8
-            (label :class "icon" :text "")
+            (label :class "icon" :text "")
             (label :class "text" :text "Reboot")))
         
         (button :class "power-menu-option logout"
                 :onclick "eww close power_menu && niri msg action quit"
           (box :orientation "v" :space-evenly false :spacing 8
-            (label :class "icon" :text "")
+            (label :class "icon" :text "󰍃")
             (label :class "text" :text "Logout")))
         
         (button :class "power-menu-option lock"
                 :onclick "eww close power_menu && swaylock -f"
           (box :orientation "v" :space-evenly false :spacing 8
-            (label :class "icon" :text "")
+            (label :class "icon" :text "")
             (label :class "text" :text "Lock"))))
       
       (button :class "power-menu-cancel"
