@@ -29,6 +29,28 @@ require("dapui").setup()
 			},
 		}
 
+  ----------------- Add C/C++ debugging support -------------------------
+        dap.adapters.gdb = {
+            type = "executable",
+            command = "gdb",
+            args = { "-i", "mi" },
+        }
+
+        dap.configurations.c = {
+            {
+                name = "Launch C",
+                type = "gdb",
+                request = "launch",
+                program = function()
+                    return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+                end,
+                cwd = "${workspaceFolder}",
+                stopAtEntry = true,
+            },
+        }
+
+        dap.configurations.cpp = dap.configurations.c
+----------------------------------------------------------------
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
 		end
