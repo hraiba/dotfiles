@@ -215,11 +215,11 @@ return {
           
           -- Enable inlay hints if supported
           -- Wrapped in pcall to handle potential errors gracefully
-          if client.server_capabilities.inlayHintProvider then
-            pcall(function()
-              vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-            end)
-          end
+          -- if client.server_capabilities.inlayHintProvider then
+          --   pcall(function()
+          --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+          --   end)
+          -- end
           
           -- You can add more keymaps or LSP-related configurations here
         end,
@@ -288,10 +288,10 @@ return {
                 enable = false,
               },
               chainingHints = {
-                enable = true,
+                enable = false,
               },
               closingBraceHints = {
-                enable = true,
+                enable = false,
                 minLines = 25,
               },
               closureReturnTypeHints = {
@@ -303,14 +303,14 @@ return {
               },
               maxLength = 25,
               parameterHints = {
-                enable = true,
+                enable = false,
               },
               reborrowHints = {
                 enable = 'never',
               },
               renderColons = true,
               typeHints = {
-                enable = true,
+                enable = false,
                 hideClosureInitialization = false,
                 hideNamedConstructor = false,
               },

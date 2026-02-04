@@ -19,6 +19,10 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
         cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
     -- local lspkind = require("lspkind")
+      
+      -- Create highlight group for selected completion item with background
+      vim.api.nvim_set_hl(0, "CmpSelect", { bg = "#6b5d4f", fg = "#fdd835" })
+      
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -26,8 +30,18 @@ return {
           end,
         },
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = cmp.config.window.bordered({
+            border = "rounded",  -- Options: "rounded", "single", "double", "shadow"
+            winhighlight = "Normal:NormalFloat,FloatBorder:GruvboxGreen,CursorLine:CmpSelect,Search:None",
+            scrollbar = true,
+            side_padding = 1,
+          }),
+          documentation = cmp.config.window.bordered({
+            border = "rounded",
+            winhighlight = "Normal:NormalFloat,FloatBorder:GruvboxGreen",
+            scrollbar = true,
+            side_padding = 1,
+          }),
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-k>"] = cmp.mapping.select_prev_item(),

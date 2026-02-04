@@ -43,3 +43,10 @@ vim.keymap.set("n", "<leader>;", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inl
 vim.wo.number = true
 vim.wo.signcolumn = "yes:2"
 
+-- Enable bracket pair matching and highlighting
+vim.o.showmatch = true  -- Show matching bracket
+vim.o.matchtime = 2     -- Tenths of a second to show matching bracket
+vim.cmd([[
+  highlight MatchParen cterm=bold gui=bold guibg=#3e4451 guifg=NONE
+]])
+
