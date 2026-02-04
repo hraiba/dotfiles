@@ -66,8 +66,31 @@ return {{
         
         -- Custom configs for servers that need them
         vim.lsp.config("clangd", {
-            cmd = {"clangd", "--background-index", "--clang-tidy", "--header-insertion=iwyu", "--completion-style=detailed"},
-            capabilities = capabilities
+            cmd = {
+                "clangd",
+                "--background-index",
+                "--clang-tidy",
+                "--header-insertion=iwyu",
+                "--completion-style=detailed",
+                "--all-scopes-completion",
+                "--suggest-missing-includes",
+                "--query-driver=**/clang*,**/gcc*",
+            },
+            filetypes = {"c", "cpp", "objc", "objcpp"},
+            capabilities = capabilities,
+            settings = {
+                clangd = {
+                    CompileFlags = {
+                        Add = {"-std=c23", "-Wall", "-Wextra", "-pedantic"},
+                    },
+                    InlayHints = {
+                        Enabled = true,
+                        ParameterHints = true,
+                        TypeHints = true,
+                        ChainingHints = true,
+                    },
+                },
+            }
         })
 
         for _, lsp in pairs(lsps) do

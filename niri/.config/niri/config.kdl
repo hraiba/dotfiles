@@ -6,7 +6,7 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
-
+prefer-no-csd
 input {
     keyboard {
         xkb {
@@ -338,6 +338,17 @@ window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
+
+// window-rule{
+//     match app-id=r#"zathura"#
+//     decorations "none"
+// }
+
+window-rule{
+  match app-id=r#"zathura"# 
+    draw-border-with-background true
+}
+
 
 window-rule{
   match app-id=r#"pavucontrol"# title="^Volume Control$"

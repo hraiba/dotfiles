@@ -41,4 +41,5 @@ vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>;", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>")
 vim.wo.number = true
+vim.wo.signcolumn = "yes:2"
 
