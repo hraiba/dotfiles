@@ -1,0 +1,11 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# vim:fileencoding=utf-8:foldmethod=marker
+
+
+[flavor]
+dark = "gruvbox-dark"
+# dark = "catppuccin-mocha"
+# dark  = "gruvbox-material"
+# light = "gruvbox-material"
+

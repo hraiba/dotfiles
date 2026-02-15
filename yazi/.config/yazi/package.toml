@@ -1,0 +1,24 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "88990a6"
+hash = "3e023d31f29201efdac2a6ae35fedb78"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "88990a6"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[flavor.deps]]
+use = "dracula/yazi"
+rev = "6c36491"
+hash = "564f2335540ee2c440c3b671bc28ac60"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "4c57537"
+hash = "8eabb4e88096f10905a6df62cfaadbf4"
+
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "619fdc5"
+hash = "d4c7003ec6dc4efd5d3a050d5c2f2575"
