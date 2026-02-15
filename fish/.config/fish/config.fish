@@ -15,4 +15,16 @@ export PATH="$PATH:~/source/eww/target/release"
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
 export PGHOST="/var/run/postgresql"
-
+export PAGER='nvim \
+    -c "set filetype=markdown" \
+    -c "normal! gg" \
+    -c "set titlestring=Reader" \
+    -c "nnoremap <silent> j <C-e>" \
+    -c "nnoremap <silent> k <C-y>" \
+    -c "nnoremap q :q!<CR>" \
+    -c "hi Cursor blend=100" \
+    -c "set guicursor+=a:Cursor/lCursor" \
+    "$1"'
+alias v=nvim
+alias y=yazi
+alias c=code
