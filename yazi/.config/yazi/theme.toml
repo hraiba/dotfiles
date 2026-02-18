@@ -1,11 +1,38 @@
-"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
-
-# vim:fileencoding=utf-8:foldmethod=marker
-
-
 [flavor]
 dark = "gruvbox-dark"
-# dark = "catppuccin-mocha"
-# dark  = "gruvbox-material"
-# light = "gruvbox-material"
 
+[icon]
+
+dirs = [
+	{ name = ".config", text = "", fg = "#d3869b" },
+	{ name = ".git", text = "", fg = "#89b482" },
+	{ name = ".github", text = "", fg = "#7daea3" },
+	{ name = ".npm", text = "", fg = "#7daea3" },
+	{ name = "Desktop", text = "", fg = "#89b482" },
+	{ name = "Development", text = "", fg = "#89b482" },
+	{ name = "Documents", text = "", fg = "#89b482" },
+	{ name = "Downloads", text = "", fg = "#89b482" },
+	{ name = "Library", text = "", fg = "#89b482" },
+	{ name = "Movies", text = "", fg = "#89b482" },
+	{ name = "Music", text = "", fg = "#89b482" },
+	{ name = "Pictures", text = "", fg = "#89b482" },
+	{ name = "Public", text = "", fg = "#89b482" },
+	{ name = "Videos", text = "", fg = "#89b482" },
+]
+conds = [
+	# Special files
+	{ if = "orphan", text = "", fg = "#d4be98" },
+	{ if = "link", text = "", fg = "#928374" },
+	{ if = "block", text = "", fg = "#ea6962" },
+	{ if = "char", text = "", fg = "#ea6962" },
+	{ if = "fifo", text = "", fg = "#ea6962" },
+	{ if = "sock", text = "", fg = "#ea6962" },
+	{ if = "sticky", text = "", fg = "#ea6962" },
+	{ if = "dummy", text = "", fg = "#ea6962" },
+
+	# Fallback
+	{ if = "dir", text = "", fg = "#7daea3" },
+    { if = "dir_open", text = "󰝰", fg = "#7daea3" },
+	{ if = "exec", text = "", fg = "#a9b665" },
+	{ if = "!dir", text = "", fg = "#d4be98" },
+]
