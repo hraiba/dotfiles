@@ -21,3 +21,4 @@ export MANPAGER='nvim +Man!'
 alias v=nvim
 alias y=yazi
 alias c=code
+alias ls=lsd
