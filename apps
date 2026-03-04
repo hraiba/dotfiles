@@ -48,3 +48,9 @@ Xdg-desktop-portal-gnome
 gnome-keyring
 dotnet 
 rust
+wl-clipboard
+cups 
+cups-filters
+ghostscript
+brother-mfc-l2800dw(AUR)
+simple-scan

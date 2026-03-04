@@ -140,31 +140,32 @@ window-rule {
 
 window-rule{
     match app-id=r#"zathura"#
+    match app-id=r#"zen"#
     opacity 0.9
 }
 
-window-rule{
-    match app-id=r#"zen"#
-    opacity 0.95
-}
+// window-rule{
+//     opacity 0.95
+// }
 
-window-rule{
-  match app-id=r#"zathura"# 
-    draw-border-with-background true
-}
+// window-rule{
+//   match app-id=r#"zathura"# 
+//     // draw-border-with-background true
+// }
 
 
 window-rule{
   match app-id=r#"pavucontrol"# title="^Volume Control$"
+  match app-id=r#"blueman-manager"# title="^Bluetooth Devices$"
   open-floating true
+  min-width 800
   opacity 0.9
 }
 
-window-rule{
-  match app-id=r#"blueman-manager"# title="^Bluetooth Devices$"
-  open-floating true
-  opacity 0.9
-}
+// window-rule{
+//   open-floating true
+//   opacity 0.9
+// }
 
 window-rule{
   match app-id=r#"eww"# 
@@ -182,7 +183,10 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
+    default-column-width { fixed 880; }
+    default-window-height { fixed 570; }
     opacity 1.0
 
 }
@@ -231,8 +235,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty" "tmux"; }
     CTRL+Grave hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+z hotkey-overlay-title="Open a zathura pdf reader" { spawn "zathura"; } 
-    
+    Mod+Shift+z hotkey-overlay-title="Open a zathura pdf reader" { spawn "zathura"; } 
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

@@ -18,7 +18,7 @@
   "nmcli -t -f active,ssid dev wifi | awk -F: '/^yes/{print $2}' | head -n1 || nmcli -t -f DEVICE,STATE dev | awk -F: '/ethernet.*connected/{print \"Ethernet\"}' | head -n1 || echo 'Offline'")
 
 (defpoll network_icon :interval "5s"
-  "nmcli -t -f STATE g | grep -q 'connected' && echo '󰖩' || echo '󰖪'")
+  "iwctl station wlan0 show | grep -q 'connected' && echo '󰖩' || echo '󰖪'")
 
 (defpoll bluetooth :interval "5s"
   "bluetoothctl show 2>/dev/null | grep -o 'Powered: .*' | awk '{print $2}' | grep -q 'yes' && echo 'On' || echo 'Off'")
@@ -68,7 +68,7 @@
     
     ;; Network
     (button :class "module network"
-            :onclick "nm-connection-editor &"
+            :onclick "nm-conne &"
             :tooltip {network != "" ? network : "Disconnected"}
       (box :space-evenly false :spacing 8
         (label :class "icon" :text network_icon)
@@ -110,9 +110,9 @@
             :onclick "pavucontrol &"
       (box :space-evenly false :spacing 8
         (label :class "icon"
-               :text {volume_muted == "true" ? "󰖁" : 
-                      volume < 30 ? "" : 
-                      volume < 70 ? "" : ""})
+               :text {volume_muted == "true" ? "󰖁 " : 
+                      volume < 30 ? " " : 
+                      volume < 70 ? "󰖀 " : " "})
         (label :class "text" :text "${volume}%")))
 
    ;; Battery

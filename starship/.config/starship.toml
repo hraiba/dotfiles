@@ -136,27 +136,27 @@ style = "fg:purple"
 format = "[ $symbol($version) ]($style)"
 
 [rust]
-symbol = ""
+symbol = " "
 style = "fg:orange"
 format = "[ $symbol($version) ]($style)"
 
 [golang]
-symbol = ""
+symbol = " "
 style = "fg:aqua"
 format = "[ $symbol($version) ]($style)"
 
 [python]
-symbol = ""
+symbol = " "
 style = "fg:yellow"
 format = "[ $symbol($version) ]($style)"
 
 [nodejs]
-symbol = ""
+symbol = " "
 style = "fg:green"
 format = "[ $symbol($version) ]($style)"
 
 [php]
-symbol = ""
+symbol = " "
 style = "fg:blue"
 format = "[ $symbol($version) ]($style)"
 
@@ -166,12 +166,12 @@ style = "fg:red"
 format = "[ $symbol($version) ]($style)"
 
 [kotlin]
-symbol = ""
+symbol = " "
 style = "fg:purple"
 format = "[ $symbol($version) ]($style)"
 
 [haskell]
-symbol = ""
+symbol = " "
 style = "fg:aqua"
 format = "[ $symbol($version) ]($style)"
 
@@ -180,7 +180,7 @@ format = "[ $symbol($version) ]($style)"
 # ======================
 
 [docker_context]
-symbol = ""
+symbol = " "
 style = "fg:gray"
 format = "[ $symbol($context) ]($style)"
 
