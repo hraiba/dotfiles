@@ -8,9 +8,10 @@ set -x BAT_PAGER "less -R"
 
 export BAT_THEME="gruvbox-dark"
 export NIRI_SOCKET=$(ls /run/user/$(id -u)/niri*.sock | head -n1)
-export PATH="$PATH:/usr/share/dotnet"
 export PATH="$PATH:~/.dotnet/tools"
-export "DOTNET_ROOT=/usr/share/dotnet"
+export "DOTNET_ROOT=~/.dotnet"
+export "DOTNET_ROOT_X64=~/.dotnet"
+export PATH="$PATH:$DOTNET_ROOT"
 export PATH="$PATH:~/source/eww/target/release"
 
 export EDITOR="nvim"

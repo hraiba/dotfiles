@@ -13,9 +13,8 @@
 (defpoll volume_muted :interval "1s"
   "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 'true' || echo 'false'")
 
-
 (defpoll network :interval "5s"
-  "nmcli -t -f active,ssid dev wifi | awk -F: '/^yes/{print $2}' | head -n1 || nmcli -t -f DEVICE,STATE dev | awk -F: '/ethernet.*connected/{print \"Ethernet\"}' | head -n1 || echo 'Offline'")
+  "iwctl station wlan0 show | grep 'network' | awk '{print $3}' || echo 'Offline'")
 
 (defpoll network_icon :interval "5s"
   "iwctl station wlan0 show | grep -q 'connected' && echo '󰖩' || echo '󰖪'")
@@ -68,13 +67,13 @@
     
     ;; Network
     (button :class "module network"
-            :onclick "nm-conne &"
-            :tooltip {network != "" ? network : "Disconnected"}
+            :onclick "kitty -e impala &"
+            :tooltip {network != "" ? network : "Offline"}
       (box :space-evenly false :spacing 8
         (label :class "icon" :text network_icon)
         (label :class "text" 
                :text {network != "" ? network : "Disconnected"}
-               :limit-width 20)))
+               :limit-width 40)))
     
     ;; Bluetooth
     (button :class "module bluetooth"
