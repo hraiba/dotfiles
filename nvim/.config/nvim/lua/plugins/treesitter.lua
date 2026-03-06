@@ -5,7 +5,9 @@ return {
   config = function()
     local treesitter = require("nvim-treesitter")
     treesitter.setup()
-    treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc', 'query', 'elixir', 'heex', 'javascript', 'typescript', 'html', 'yaml', 'c_sharp', 'rust' }
+
+    treesitter.ensure_installed = { "lua", "xml", "http", "json", "graphql", "c", "c_sharp","rust" }
+    treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc', 'query', 'elixir', 'heex', 'javascript', 'typescript', 'html', 'yaml', 'c_sharp', 'rust', 'http' }
 
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { 'java', 'c', 'lua', 'vim', 'vimdoc', 'query', 'elixir', 'heex', 'javascript', 'typescript', 'html', 'yaml', 'cs', 'ru' },
@@ -28,7 +30,6 @@ return {
 --     config = function()
 --       local config = require("nvim-treesitter.configs")
 --       config.setup({
---         ensure_installed = { "lua", "xml", "http", "json", "graphql", "c", "c_sharp","rust" },
 --         auto_install = true,
 --         highlight = { enable = true },
 --         indent = { enable = true },

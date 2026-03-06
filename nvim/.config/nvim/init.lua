@@ -13,3 +13,16 @@ vim.opt.rtp:prepend(lazypath)
 
 require("vim-options")
 require("lazy").setup("plugins")
+vim.filetype.add({
+  extension = {
+    ['http'] = 'http',
+  },
+})
+
+-- Register the kulala_http parser for http files
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'http',
+  callback = function()
+    vim.treesitter.start(0, 'kulala_http')
+  end,
+})
