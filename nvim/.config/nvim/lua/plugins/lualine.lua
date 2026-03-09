@@ -5,6 +5,10 @@ return {
     local job_indicator = { require("easy-dotnet.ui-modules.jobs").lualine }
     require("lualine").setup({
       options = {
+        disabled_filetypes = {
+          statusline = { "AvanteInput", "Avante", "AvanteSelectedFiles" },
+          winbar = { "AvanteInput", "Avante", "AvanteSelectedFiles", "AvanteConflict" },
+        },
         icons_enabled = true,
         ignore_focus = {},
         always_divide_middle = true,
@@ -16,9 +20,9 @@ return {
       },
       sections = {
         -- lualine_a={"mode", job_indicator}
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-      }
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff", "diagnostics" },
+      },
     })
   end,
 }
