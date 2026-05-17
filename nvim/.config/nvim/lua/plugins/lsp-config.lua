@@ -58,9 +58,9 @@ return { {
         focusable = true
       }
     })
-
+-- "csharp_ls",
     local lsps = {     -- { "rust_analyzer" },
-      "gopls", "ts_ls", "cssls", "lua_ls", "hls", "jsonls", "html", "csharp_ls",
+      "gopls", "ts_ls", "cssls", "lua_ls", "hls", "jsonls", "html", "easy-dotnet"
     }
 
     -- Custom configs for servers that need them
@@ -99,7 +99,8 @@ return { {
     end
 
     -- Enable all servers
-    vim.lsp.enable({ "gopls", "ts_ls", "cssls", "lua_ls", "hls", "jsonls", "html", "csharp_ls", "clangd" })
+    -- "csharp_ls", we are using easy-dotnet.nvim
+    vim.lsp.enable({ "gopls", "ts_ls", "cssls", "lua_ls", "hls", "jsonls", "html",  "clangd", "easy-dotnet" })
     vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
     vim.keymap.set("n", "dp", vim.diagnostic.goto_prev)
     vim.keymap.set("n", "dn", vim.diagnostic.goto_next)
