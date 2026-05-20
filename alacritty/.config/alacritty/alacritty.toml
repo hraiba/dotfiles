@@ -19,10 +19,9 @@ style = {shape = "Beam", blinking = "On"}
 
 [window]
 opacity = 0.9
-blur = true
 
 padding.x = 0
-padding.y = 5
+padding.y = 2
 
 decorations = "None"
 decorations_theme_variant = "Dark"
