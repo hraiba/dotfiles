@@ -253,7 +253,7 @@ binds {
     Mod+Shift+E hotkey-overlay-title="Show Power Menu" {spawn "eww" "open" "power_menu" "--toggle";}
     Mod+Shift+S hotkey-overlay-title="Open sound controls" { spawn "pavucontrol" ; }
     Mod+Shift+b hotkey-overlay-title="Open Bluetooth manager" { spawn "blueman-manager" ; }
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kitty" "tmux"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: Kitty" { spawn "kitty" "tmux"; }
     CTRL+Grave hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Shift+z hotkey-overlay-title="Open a zathura pdf reader" { spawn "zathura"; } 
