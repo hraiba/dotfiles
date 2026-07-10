@@ -7,6 +7,8 @@ return {
         show_hidden = true,
       }
     })
-    vim.keymap.set("n", "-", oil.toggle_float, {})
+    vim.keymap.set("n", "-", function()
+        require("oil").open()
+    end, {})
   end,
 }
