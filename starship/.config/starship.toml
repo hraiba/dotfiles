@@ -73,6 +73,7 @@ CentOS  = ""
 Debian  = "󰣚"
 Redhat  = "󱄛"
 RedHatEnterprise = "󱄛"
+CachyOS = ""
 
 # ======================
 # 📁 DIRECTORY + BRACKETS
