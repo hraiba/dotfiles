@@ -3,3 +3,5 @@
 (include "./widgets/calendar_menu.yuck")
 (include "./widgets/power_menu.yuck")
 (include "./widgets/clock.yuck")
+(include "./bar2/bar2.yuck")
+(include "./widgets/wifi_menu.yuck")

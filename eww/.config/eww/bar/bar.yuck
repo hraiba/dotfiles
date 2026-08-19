@@ -14,10 +14,16 @@
   "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 'true' || echo 'false'")
 
 (defpoll network :interval "5s"
-  "iwctl station wlan0 show | grep 'network' | awk '{print $3}' || echo 'Offline'")
+    "nmcli device show wlan0 | grep 'connected' | echo 'connected' || echo 'Offline'")
+  ; "nmcli device show wlan0 | grep 'network' | awk '{print $3}' || echo 'Offline'")
 
 (defpoll network_icon :interval "5s"
-  "iwctl station wlan0 show | grep -q 'connected' && echo '󰖩' || echo '󰖪'")
+  "nmcli device show wlan0 | grep -q 'connected' && echo '󰖩' || echo '󰖪'")
+  ; "iwctl station wlan0 show | grep -q 'connected' && echo '󰖩' || echo '󰖪'")
+
+(defpoll network_name :interval "5s"
+    "nmcli device  show wlan0 | grep -i 'connection:' | awk '{print $2}'")
+; nmcli device  show wlan0 | grep -i 'connection:' | awk '{print $2}'
 
 (defpoll bluetooth :interval "5s"
   "bluetoothctl show 2>/dev/null | grep -o 'Powered: .*' | awk '{print $2}' | grep -q 'yes' && echo 'On' || echo 'Off'")
@@ -32,7 +38,7 @@
 
 ;; Main Window
 (defwindow bar
-  :monitor 0
+  :monitor 1
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "50%"
@@ -67,7 +73,7 @@
     ;; Network
     (button :class "module network"
             :onclick "kitty -e impala &"
-            :tooltip {network != "" ? network : "Offline"}
+            :tooltip {network != "" ? network_name : "Offline"}
       (box :space-evenly false :spacing 8
         (label :class "icon" :text network_icon)
         (label :class "text" 

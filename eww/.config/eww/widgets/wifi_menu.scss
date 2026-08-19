@@ -1,0 +1,41 @@
+
+.calendar_menu {
+  background-color: #282828;  /* Gruvbox bg0 */
+  border: 2px solid #504945;  /* Gruvbox bg2 */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  color: #ebdbb2;  /* Gruvbox fg */
+  font-family: monospace;
+}
+
+/* Calendar header (month/year) */
+.calendar_menu calendar:indeterminate {
+  color: #fabd2f;  /* Gruvbox yellow */
+}
+
+/* Calendar weekday labels */
+.calendar_menu calendar:backdrop {
+  color: #a89984;  /* Gruvbox fg4 */
+}
+
+/* Selected date */
+.calendar_menu calendar:selected {
+  background-color: #d65d0e;  /* Gruvbox orange */
+  color: #282828;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Today's date */
+.calendar_menu calendar.highlight {
+  background-color: #458588;  /* Gruvbox blue */
+  color: #ebdbb2;
+  border-radius: 6px;
+}
+
+/* Hover effect */
+.calendar_menu calendar:hover {
+  background-color: #3c3836;  /* Gruvbox bg1 */
+  border-radius: 6px;
+}

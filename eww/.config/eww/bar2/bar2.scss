@@ -1,0 +1,26 @@
+// Gruvbox Colors
+$bg0: #282828;
+$bg1: #3c3836;
+$bg2: #504945;
+$fg: #ebdbb2;
+$fg2: #d5c4a1;
+$red: #fb4934;
+$green: #b8bb26;
+$yellow: #fabd2f;
+$blue: #83a598;
+$purple: #d3869b;
+$aqua: #8ec07c;
+$orange: #fe8019;
+
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 16px;
+}
+
+.low-battery {
+    background-color: $bg0;
+    border: 3px solid red;
+  padding: 4px;
+  font-size: 22px;
+}

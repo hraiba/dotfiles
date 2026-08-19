@@ -17,11 +17,12 @@ $orange: #fe8019;
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 16px;
 }
+
 window {
   background-color: transparent;
-background: rgba(255, 0, 0, 0.0);
+  background: rgba(255, 0, 0, 1.0);
   opacity: 1;
-  border-radius: 12px;
+  border-radius: 8px;
 }
 
 tooltip {
@@ -35,6 +36,8 @@ tooltip {
 .bar {
   background-color: $bg1;
   padding: 4px;
+  border: 2px solid $bg2;
+  border-radius: 20px;
 }
 
 .module {

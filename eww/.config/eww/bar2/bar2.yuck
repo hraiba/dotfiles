@@ -1,0 +1,34 @@
+;; Main Window
+(defwindow bar2
+  :monitor 0
+  :class "low-battery"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :height "25%"
+                      :width "50%"
+                      :anchor "center")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "eww-bar"
+  (battery)
+)
+
+(defwidget battery []
+
+  (box
+    :orientation "v"
+      :class "low-battery"
+    (label
+      :text "Battery capacity less than 10%"
+    )
+
+    (button
+      :onclick "systemctl poweroff"
+      (label
+        :class "text"
+        :text "Shutdown"
+      )
+    )
+  )
+)
