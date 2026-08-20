@@ -2,10 +2,10 @@
 ;; window with Args 
 
 (defwindow calander_menu  []
-           :monitor 0
+           :monitor 1
            :geometry (geometry 
                         :x "0%"
-                        :y "50px"
+                        :y "51px"
                         :width "350px"
                         :height "250px"
                         :anchor "top center")
@@ -23,14 +23,14 @@
   ))))
 
 ;; Create an invisible overlay that closes the menu when clicked
-(defwindow calander_menu_overlay
-  :monitor 0
-  :geometry (geometry 
-              :x "0%"
-              :y "0%"
-              :width "100%"
-              :height "100%")
-  :stacking "bg"
-  :focusable false
-  (eventbox :onclick "eww close calander_menu && eww close calander_menu_overlay"
-    (box :style "background-colo r: transparent;")))
+; (defwindow calander_menu_overlay
+;   :monitor 0
+;   :geometry (geometry 
+;               :x "0%"
+;               :y "0%"
+;               :width "100%"
+;               :height "100%")
+;   :stacking "bg"
+;   :focusable false
+;   (eventbox :onclick "eww close calander_menu && eww close calander_menu_overlay"
+;     (box :style "background-colo r: transparent;")))

@@ -1,9 +1,10 @@
 
 .calendar_menu {
   background-color: #282828;  /* Gruvbox bg0 */
-  border: 2px solid #504945;  /* Gruvbox bg2 */
+  opacity: 0.99;
+  border: 1px solid #504945;  /* Gruvbox bg2 */
   border-radius: 12px;
-  padding: 16px;
+  padding: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   color: #ebdbb2;  /* Gruvbox fg */
   font-family: monospace;
@@ -12,6 +13,7 @@
 /* Calendar header (month/year) */
 .calendar_menu calendar:indeterminate {
   color: #fabd2f;  /* Gruvbox yellow */
+  border: 0px;
 }
 
 /* Calendar weekday labels */
@@ -21,9 +23,9 @@
 
 /* Selected date */
 .calendar_menu calendar:selected {
-  background-color: #d65d0e;  /* Gruvbox orange */
+  background-color: #d65d0e; /*  Gruvbox orange */
   color: #282828;
-  border-radius: 6px;
+  // border-radius: 8px;
   font-weight: bold;
 }
 

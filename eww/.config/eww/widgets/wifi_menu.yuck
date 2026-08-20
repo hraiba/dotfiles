@@ -4,17 +4,16 @@
 (defwindow wifi_menu  []
            :monitor 1
            :geometry (geometry 
-                        :x "0%"
+                        :x "25%"
                         :y "50px"
                         :width "350px"
-                        :height "250px"
-                        :anchor "top center")
+                        :height "250px")
           :stacking "overlay"
           :reserve (struts :distance "50px" :side "top")
   (eventbox :onfocuslost "eww close wifi_menu"
   (box 
-      (calendar 
-                :class "calendar_menu"
+      (wifis 
+                :class "wifi_menu"
                 :geometry (geometry 
                     :x "0%"
                     :y "42px"
@@ -22,15 +21,12 @@
                     :height "250px")
   ))))
 
-;; Create an invisible overlay that closes the menu when clicked
-(defwindow calander_menu_overlay
-  :monitor 0
-  :geometry (geometry 
-              :x "0%"
-              :y "0%"
-              :width "100%"
-              :height "100%")
-  :stacking "bg"
-  :focusable false
-  (eventbox :onclick "eww close calander_menu && eww close calander_menu_overlay"
-    (box :style "background-colo r: transparent;")))
+
+(defwidget wifis []
+  (box :orientation "h"
+       :space-evenly false
+       :spacing 12
+    (label :class "icon" :text network_icon)
+    )
+
+)

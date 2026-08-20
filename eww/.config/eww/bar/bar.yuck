@@ -43,7 +43,6 @@
                       :y "0%"
                       :width "50%"
                       :anchor "top center")
-  :stacking "overlay"
   :exclusive false
   :focusable false
   :namespace "eww-bar"
@@ -72,7 +71,7 @@
     
     ;; Network
     (button :class "module network"
-            :onclick "kitty -e impala &"
+            :onclick "eww open wifi_menu --toggle"
             :tooltip {network != "" ? network_name : "Offline"}
       (box :space-evenly false :spacing 8
         (label :class "icon" :text network_icon)
@@ -92,18 +91,20 @@
     (box :class "spacer" :hexpand true)
     
     ;; Clock
-    (button :class "module clock"
-            ; :onclick "gnome-calendar &"
-            :onclick "eww open clock"
-      (box :space-evenly false :spacing 8
-        (label :class "icon" :text "")
-        (label :class "text" :text time)))
+    ; (button :class "module clock"
+    ;         ; :onclick "gnome-calendar &"
+    ;         :onclick "eww open clock"
+    ;   (box :space-evenly false :spacing 8
+    ;     (label :class "icon" :text "")
+    ;     (label :class "text" :text time)))
     
     ;; Date
     (button :class "module date"
             :onclick "eww open calander_menu --toggle && eww open calander_menu_overlay --toggle" 
       (box :space-evenly false :spacing 8
-        (label :class "icon" :text "")
+        (label :class "icon" :text "")
+        (label :class "text" :text time)
+        (label :class "icon" :text "")
         (label :class "text" :text date)))
     
     ;; Spacer
@@ -121,7 +122,7 @@
 
    ;; Battery
   (button :class "module battery"
-         :tooltip {EWW_BATTERY["BAT0"].status}
+         :tooltip {EWW_BATTERY["/caBAT0"].status}
   (box :space-evenly false :spacing 8
     (label :class "icon ${ EWW_BATTERY["BAT0"].capacity <= 10 ? 'critical' : '' }"
            :text "${  EWW_BATTERY["BAT0"].capacity > 95 ? '󰁹' 
