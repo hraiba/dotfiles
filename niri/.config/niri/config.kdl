@@ -90,6 +90,8 @@ spawn-at-startup "eww" "daemon"
 
 spawn-at-startup "swaybg" "--image" "/home/mo/Pictures/wolf.jpg"
 
+spawn-sh-at-startup "$HOME/Projects/battery.sh"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
