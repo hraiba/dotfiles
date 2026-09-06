@@ -1,13 +1,15 @@
 return {
-  "neanias/everforest-nvim",
-  version = false,
-  lazy = false,
-  priority = 1000, -- make sure to load this before all the other start plugins
-  -- Optional; default configuration will be used if setup isn't called.
-  config = function()
-    require("everforest").setup({
-      -- Your config here
-    })
-   vim.cmd[[colorscheme everforest]]
-  end,
-}
+      'sainnhe/everforest',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.everforest_enable_italic = true
+        vim.g.everforest_background = 'hard'
+        vim.g.everforest_transparent_background = 1
+        vim.g.everforest_float_style= 'dim'
+        vim.g.everforest_inlay_hints_background = 'dimmed'
+        vim.cmd[[colorscheme everforest]]
+      end
+    }
