@@ -1,0 +1,48 @@
+default-timeout=10000
+
+font=Segoe UI Regular 11
+
+border-radius=5
+border-size=2
+
+width=350
+height=120
+
+padding=15
+margin=10
+
+# Everforest Dark palette
+background-color=#2d353b
+text-color=#d3c6aa
+border-color=#a7c080
+
+# Progress bars
+progress-color=#a7c080
+
+
+# Low priority — blue
+[urgency=low]
+border-color=#7fbbb3
+background-color=#2d353b
+text-color=#d3c6aa
+
+
+# Normal — Everforest green
+[urgency=normal]
+border-color=#a7c080
+background-color=#2d353b
+text-color=#d3c6aa
+
+
+# Critical — Everforest red
+[urgency=critical]
+border-color=#e67e80
+background-color=#4a2b2b
+text-color=#d3c6aa
+default-timeout=0
+
+# Icons
+icon-path=/usr/share/icons
+
+# Grouping
+group-by=app-name
