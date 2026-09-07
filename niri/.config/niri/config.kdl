@@ -60,15 +60,26 @@ layout {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
         off
-
         width 1
-
-        active-color "#fabd2f"     // Gruvbox yellow
-        inactive-color "#3c3836"   // Gruvbox dark gray/brown
-
-        urgent-color "#fb4934"     // Gruvbox red
-        active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+        active-color "#dbbc7f"     // Everforest yellow
+        inactive-color "#3a454a"   // Everforest bg2 (dark gray)
+        urgent-color "#e67e80"     // Everforest red
+        active-gradient from="#e69875" to="#dbbc7f" angle=45 relative-to="workspace-view" in="oklch longer hue"
     }
+
+    // border {
+    //     // The settings are the same as for the focus ring.
+    //     // If you enable the border, you probably want to disable the focus ring.
+    //     off
+    //
+    //     width 1
+    //
+    //     // active-color "#fabd2f"     // Gruvbox yellow
+    //     // inactive-color "#3c3836"   // Gruvbox dark gray/brown
+    //
+    //     urgent-color "#fb4934"     // Gruvbox red
+    //     active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
+    // }
 
     shadow {
          on
