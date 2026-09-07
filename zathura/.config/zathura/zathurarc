@@ -1,44 +1,101 @@
-
+# Gruvbox theme
 # --- Completion menu ---
-set completion-group-bg         "#3c3836"   # bg1
-set completion-group-fg         "#ebdbb2"   # fg
-set completion-bg               "#282828"   # bg0
-set completion-fg               "#ebdbb2"
-set completion-highlight-bg     "#458588"   # blue
-set completion-highlight-fg     "#fbf1c7"   # fg1 (brighter)
+# set completion-group-bg         "#3c3836"   # bg1
+# set completion-group-fg         "#ebdbb2"   # fg
+# set completion-bg               "#282828"   # bg0
+# set completion-fg               "#ebdbb2"
+# set completion-highlight-bg     "#458588"   # blue
+# set completion-highlight-fg     "#fbf1c7"   # fg1 (brighter)
+#
+# # --- Notifications ---
+# set notification-error-bg       "#cc241d"   # red
+# set notification-error-fg       "#fbf1c7"
+# set notification-warning-bg     "#d79921"   # yellow
+# set notification-warning-fg     "#282828"
+# set notification-bg             "#3c3836"   # bg1
+# set notification-fg             "#ebdbb2"
+#
+# # --- Index / list ---
+# set index-bg                    "#1d2021"   # bg0_hard
+# set index-fg                    "#ebdbb2"
+# set index-active-bg             "#504945"   # bg2
+# set index-active-fg             "#fbf1c7"
+#
+# # --- Input bar ---
+# set inputbar-bg                 "#3c3836"
+# set inputbar-fg                 "#ebdbb2"
+#
+# # --- Status bar ---
+# set statusbar-bg                "#282828"
+# set statusbar-fg                "#ebdbb2"
+#
+# # --- Highlights ---
+# # set highlight-color             "#458588"   # blue
+# set highlight-active-color      "#83a598"   # light blue
+#
+#
+# # --- Main colors ---
+# set default-bg                  "#1d2021"   # bg0_hard
+# set default-fg                  "#ebdbb2"   # FIXED (was not Gruvbox)
+# set recolor-lightcolor          "#282828"
+# set recolor-darkcolor           "#ebdbb2"
+#
+# set statusbar-h-padding 0
+# set statusbar-v-padding 0
+# set page-padding 1
+# map u scroll half-up
+# map d scroll half-down
+# map D toggle_page_mode
+# map r reload
+# map R rotate
+# map K zoom in
+# map J zoom out
+# map i recolor
+# set recolor                     true
+# map p print
+# set selection-clipboard clipboard
+######################################################
+
+# Everforst theme
+# --- Completion menu ---
+set completion-group-bg         "#343F44"   # bg1
+set completion-group-fg         "#D3C6AA"   # fg
+set completion-bg               "#2D353B"   # bg0
+set completion-fg               "#D3C6AA"
+set completion-highlight-bg     "#7FBBB3"   # blue
+set completion-highlight-fg     "#232A2E"   # bg_dim (dark text on light blue for contrast)
 
 # --- Notifications ---
-set notification-error-bg       "#cc241d"   # red
-set notification-error-fg       "#fbf1c7"
-set notification-warning-bg     "#d79921"   # yellow
-set notification-warning-fg     "#282828"
-set notification-bg             "#3c3836"   # bg1
-set notification-fg             "#ebdbb2"
+set notification-error-bg       "#E67E80"   # red
+set notification-error-fg       "#232A2E"
+set notification-warning-bg     "#DBBC7F"   # yellow
+set notification-warning-fg     "#232A2E"
+set notification-bg             "#343F44"   # bg1
+set notification-fg             "#D3C6AA"
 
 # --- Index / list ---
-set index-bg                    "#1d2021"   # bg0_hard
-set index-fg                    "#ebdbb2"
-set index-active-bg             "#504945"   # bg2
-set index-active-fg             "#fbf1c7"
+set index-bg                    "#232A2E"   # bg_dim
+set index-fg                    "#D3C6AA"
+set index-active-bg             "#3D484D"   # bg2
+set index-active-fg             "#D3C6AA"
 
 # --- Input bar ---
-set inputbar-bg                 "#3c3836"
-set inputbar-fg                 "#ebdbb2"
+set inputbar-bg                 "#343F44"
+set inputbar-fg                 "#D3C6AA"
 
 # --- Status bar ---
-set statusbar-bg                "#282828"
-set statusbar-fg                "#ebdbb2"
+set statusbar-bg                "#2D353B"
+set statusbar-fg                "#D3C6AA"
 
 # --- Highlights ---
-# set highlight-color             "#458588"   # blue
-set highlight-active-color      "#83a598"   # light blue
-
+# set highlight-color             "#7FBBB3"   # blue
+set highlight-active-color      "#A7C080"   # green
 
 # --- Main colors ---
-set default-bg                  "#1d2021"   # bg0_hard
-set default-fg                  "#ebdbb2"   # FIXED (was not Gruvbox)
-set recolor-lightcolor          "#282828"
-set recolor-darkcolor           "#ebdbb2"
+set default-bg                  "#232A2E"   # bg_dim
+set default-fg                  "#D3C6AA"   # fg
+set recolor-lightcolor          "#2D353B"
+set recolor-darkcolor           "#D3C6AA"
 
 set statusbar-h-padding 0
 set statusbar-v-padding 0
