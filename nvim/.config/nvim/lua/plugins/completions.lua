@@ -1,74 +1,74 @@
 return {
-  {
-    "hrsh7th/cmp-nvim-lsp"
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-      -- "onsails/lspkind.nvim",
-      -- "hrsh7th/cmp-buffer",
-      -- "hrsh7th/cmp-path",
+    {
+        "hrsh7th/cmp-nvim-lsp"
     },
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      local cmp = require("cmp")
-      require("luasnip.loaders.from_vscode").lazy_load()
-        cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
-    -- local lspkind = require("lspkind")
-      
-      -- Create highlight group for selected completion item with background
-      vim.api.nvim_set_hl(0, "CmpSelect", { bg = "#6b5d4f", fg = "#fdd835" })
-      
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end,
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = {
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+            -- "onsails/lspkind.nvim",
+            -- "hrsh7th/cmp-buffer",
+            -- "hrsh7th/cmp-path",
         },
-        window = {
-          completion = cmp.config.window.bordered({
-            border = "rounded",  -- Options: "rounded", "single", "double", "shadow"
-            winhighlight = "Normal:NormalFloat,FloatBorder:GruvboxGreen,CursorLine:CmpSelect,Search:None",
-            scrollbar = true,
-            side_padding = 1,
-          }),
-          documentation = cmp.config.window.bordered({
-            border = "rounded",
-            winhighlight = "Normal:NormalFloat,FloatBorder:GruvboxGreen",
-            scrollbar = true,
-            side_padding = 1,
-          }),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-k>"] = cmp.mapping.select_prev_item(),
-          ["<C-j>"] = cmp.mapping.select_next_item(),
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-e>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" },
-          { name = "easy-dotnet"},
-          { name = "luasnip" }, -- For luasnip users.
-        }, {
-          { name = "buffer" },
-          -- { name = "path" },
-        }),
+    },
+    {
+        "hrsh7th/nvim-cmp",
+        config = function()
+            local cmp = require("cmp")
+            require("luasnip.loaders.from_vscode").lazy_load()
+            cmp.register_source("easy-dotnet", require("easy-dotnet").package_completion_source)
+            -- local lspkind = require("lspkind")
 
-    -- formatting = {
-    --     format = lspkind.cmp_format({
-    --       maxwidth = 50,
-    --       ellipsis_char = "...",
-    --     }),
-    --   },
+            -- Create highlight group for selected completion item with background
+            vim.api.nvim_set_hl(0, "CmpSelect", { bg = "#3d484d", fg = "#a7c080", bold = true })
 
-      })
-    end,
-  },
+            cmp.setup({
+                snippet = {
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end,
+                },
+                window = {
+                    completion = cmp.config.window.bordered({
+                        border = "rounded", -- Options: "rounded", "single", "double", "shadow"
+                        winhighlight = "Normal:CmpNormalFloat,FloatBorder:CmpBorder,CursorLine:CmpSelect,Search:None",
+                        scrollbar = true,
+                        side_padding = 1,
+                    }),
+                    documentation = cmp.config.window.bordered({
+                        border = "rounded",
+                        winhighlight = "Normal:CmpNormalFloat,FloatBorder:CmpBorder",
+                        scrollbar = true,
+                        side_padding = 1,
+                    }),
+                },
+                mapping = cmp.mapping.preset.insert({
+                    ["<C-k>"] = cmp.mapping.select_prev_item(),
+                    ["<C-j>"] = cmp.mapping.select_next_item(),
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                }),
+                sources = cmp.config.sources({
+                    { name = "nvim_lsp" },
+                    { name = "easy-dotnet" },
+                    { name = "luasnip" }, -- For luasnip users.
+                }, {
+                    { name = "buffer" },
+                    -- { name = "path" },
+                }),
+
+                -- formatting = {
+                --     format = lspkind.cmp_format({
+                --       maxwidth = 50,
+                --       ellipsis_char = "...",
+                --     }),
+                --   },
+
+            })
+        end,
+    },
 }

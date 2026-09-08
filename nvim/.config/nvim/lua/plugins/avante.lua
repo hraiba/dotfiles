@@ -15,7 +15,7 @@ return {
     -- this file can contain specific instructions for your project
     instructions_file = "avante.md",
     -- for example
-    provider = "claude",
+    provider = "claude", -- default provider
     providers = {
       claude = {
         endpoint = "https://api.anthropic.com",
