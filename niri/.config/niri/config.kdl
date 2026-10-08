@@ -203,8 +203,15 @@ window-rule{
 window-rule{
   match app-id=r#"eww"# 
   open-floating true
-  opacity 0.5
+  // opacity 0.5
 }
+
+// window-rule{
+//   match app-id=r#"mpv"# 
+//   open-floating true
+//   match is-active=false
+//   opacity 1.0
+// }
 
 window-rule{
   match is-active=false
@@ -217,6 +224,7 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"mpv"# 
     open-floating true
     default-column-width { fixed 880; }
     default-window-height { fixed 570; }
