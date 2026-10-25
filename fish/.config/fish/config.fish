@@ -51,7 +51,7 @@ alias fx='docker run \
   --cpus=1 \
   --memory=2g \
   --memory-swap=2g \
-  isolated-firefox'
+  isolated-firefox 2> /dev/null &'
 
 
 # opencode
