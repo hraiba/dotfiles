@@ -19,8 +19,29 @@ $orange: #fe8019;
 }
 
 .low-battery {
-    background-color: $bg0;
-    border: 3px solid red;
+  background-color: $bg0;
+  border: 3px solid red;
   padding: 4px;
   font-size: 22px;
+}
+
+// button {
+//   background: $red;
+//   height: 50px
+//   width: 100px
+//
+//   &:hover {
+//     color: $yellow;
+//   }
+// }
+.text {
+  background: $bg0;
+}
+.close{
+  background: $red;
+  border-radius: 20px;
+}
+
+.close:hover {
+  color: $yellow;
 }

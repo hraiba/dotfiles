@@ -1,6 +1,6 @@
 ;; Main Window
 (defwindow bar2
-  :monitor 0
+  :monitor 1
   :class "low-battery"
   :geometry (geometry :x "0%"
                       :y "0%"
@@ -19,11 +19,25 @@
   (box
     :orientation "v"
       :class "low-battery"
+    (button 
+      :valign "start"
+      :halign "end"
+      :vexpand: false
+      :hexpand false
+      :width 30
+      :height 30
+      :onclick "eww close bar2"
+      (label 
+        :class "close"
+        :text "x")
+      )
     (label
       :text "Battery capacity less than 10%"
     )
 
     (button
+        :height 50
+        :width 100
       :onclick "systemctl poweroff"
       (label
         :class "text"

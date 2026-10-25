@@ -20,7 +20,7 @@ $orange: #fe8019;
 }
 
 window {
-  background-color: transparent;
+  background-color: $bg1;// transparent;
   opacity:1;
   border-radius: 8px;
 }
