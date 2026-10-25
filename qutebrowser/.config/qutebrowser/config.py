@@ -82,10 +82,12 @@ config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle tabs.show always never;; config-cycle statusbar.show always never')
 config.bind('xd', 'config-cycle colors.webpage.darkmode.enabled true false')
+config.bind(',v', 'spawn mpv {url}')
 
 # User Agent & Domain Specific Settings
 config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:71.0) Gecko/20100101 Firefox/71.0', 'https://accounts.google.com/*')
+#User-AgentMozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:155.0) Gecko/20100101 Firefox/155.0', 'https://accounts.google.com/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # --- Security ---

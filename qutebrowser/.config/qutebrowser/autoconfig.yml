@@ -7,8 +7,4 @@
 config_version: 2
 settings:
   colors.webpage.darkmode.enabled:
-    global: false
-  statusbar.show:
-    global: always
-  tabs.show:
-    global: never
+    global: true
