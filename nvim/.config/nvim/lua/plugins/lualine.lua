@@ -15,7 +15,7 @@ return {
         -- theme = "rose-pine",
         -- theme = "vscode",
         -- theme = "palenight",
-        theme = "gruvbox",
+        theme = "everforest",
         -- theme = "evil_lualine",
       },
       sections = {

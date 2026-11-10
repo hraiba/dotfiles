@@ -22,24 +22,24 @@ vim.g.background = "dark"
 vim.opt.swapfile = false
 
 -- Navigate vim panes better
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+vim.keymap.set("n", "<c-k>", "<cmd>wincmd k<CR>")
+vim.keymap.set("n", "<c-j>", "<cmd>wincmd j<CR>")
+vim.keymap.set("n", "<c-h>", "<cmd>wincmd h<CR>")
+vim.keymap.set("n", "<c-l>", "<cmd>wincmd l<CR>")
 -- vim.keymap.set("n", "<leader>q", ":q<CR>")
-vim.keymap.set("n", "<leader>Q", ":q!<CR>")
-vim.keymap.set("n", "<leader>bd", ":bd<CR>")
+vim.keymap.set("n", "<leader>Q", "<cmd>q!<CR>")
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>")
 vim.keymap.set({"n", "v"}, "<leader>yy", '"+y<CR>')
 vim.keymap.set("n", "<leader>pp", '"+p<CR>')
-vim.keymap.set("n", "<leader>wa", ":wa<CR>")
+vim.keymap.set("n", "<leader>wa", "<cmd>wa<CR>")
 
 -- break line in normal models
 vim.keymap.set("n", "<leader>o", "a<CR><Esc>k$")
 vim.keymap.set("n", "<leader>O", "i<CR><Esc>k$")
-vim.keymap.set("n", "<leader>v", ":vsplit<CR>")
+vim.keymap.set("n", "<leader>v", "<cmd>vsplit<CR>")
 
-vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
-vim.keymap.set("n", "<leader>;", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>")
+vim.keymap.set("n", "<leader>h", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader>;", "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>")
 vim.wo.number = true
 vim.wo.signcolumn = "yes:2"
 
