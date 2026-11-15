@@ -25,6 +25,7 @@ alias v=nvim
 alias y=yazi
 alias c=code
 alias ls=lsd
+alias dotfile='nvim ~/dotfiles'
 # alias fx='docker run -d \
 #   -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY \
 #   -v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/tmp/$WAYLAND_DISPLAY \
