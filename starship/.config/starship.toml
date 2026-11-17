@@ -2,6 +2,8 @@
 
 palette = "gruvbox_dark"
 
+add_newline = false
+
 format = """
 $os \
 ${custom.left_bracket}\
